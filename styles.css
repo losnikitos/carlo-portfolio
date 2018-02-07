@@ -1,0 +1,132 @@
+/* Common styles */
+
+body {
+    position: relative; /* for scrollspy */
+    font-size: .7em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img {
+    width: 100%
+}
+
+.main > section {
+    padding-top: 50px;
+}
+
+/* Works */
+
+#works {
+    line-height: 2em;
+}
+
+#works .row {
+    margin-bottom: 50px;
+}
+
+#works section {
+    margin-bottom: 150px;
+}
+
+/* Navigation */
+
+@media (min-width: 576px) {
+    #navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+}
+
+#navigation {
+    padding-top: 40px; /* visually align with content on the right at 50px from top */
+    padding-left: 50px;
+}
+
+#navigation .nav-link {
+    padding: 0;
+    line-height: 3em;
+}
+
+/* Description */
+
+#description .nav-link {
+    padding-left: 50px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+    line-height: 2em;
+    background-color: white;
+
+    /* Stick to top-left on small screens */
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    z-index: 1;
+}
+
+/* Stick to bottom-left on big screens */
+@media (min-width: 576px) {
+    #description .nav-link {
+        bottom: 0;
+        top: auto;
+    }
+}
+
+#description .nav-link.active {
+    opacity: 1;
+    pointer-events: all;
+    text-decoration: none;
+}
+
+/* About */
+
+li {
+    list-style-type: none;
+}
+
+#about section {
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+ul {
+    padding-left: 1rem;
+}
+
+/* shopwares and archive */
+
+.card {
+    border: none;
+    border-radius: 0;
+}
+
+.card-img-top {
+    border-radius: 0;
+}
+
+.card-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline !important;
+}
+
+a.active {
+    text-decoration: underline;
+}
