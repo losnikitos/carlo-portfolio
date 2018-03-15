@@ -6,6 +6,7 @@ $('a[href=\'#top\']').click(function () {
 
 const isMobile = $(window).width() < 576;
 const offset = isMobile ? 200 : 0;
+const firstOffset = 50; // to give place for menu on mobile
 
 function getPosition(elem) {
     const top = $(elem).offset().top;
@@ -33,6 +34,7 @@ const sections = ids.map(id => {
 function onScroll() {
 
     const {top: viewportTop, bottom: viewportBottom} = getViewport();
+    const viewportMiddle = viewportTop + (viewportBottom - viewportTop) / 2;
     let somethingAlreadyVisible = false;
 
     sections.map(section => {
@@ -41,7 +43,7 @@ function onScroll() {
         // On mobile offset > 0, which means that description shows up *earlier*, than previous section disappears,
         // except for first section description, which shows *later*, than it should (with same offset)
         // On desktop offset = 0
-        let visible = sectionBottom > (viewportTop + offset) && sectionTop < (viewportBottom + offset) && (!offset || (viewportTop > offset));
+        let visible = sectionBottom > (viewportMiddle + offset) && sectionTop < (viewportMiddle + offset) && (isMobile ? viewportTop > firstOffset : true);
 
         // make visible only one section at a time
         if (visible && somethingAlreadyVisible) {
